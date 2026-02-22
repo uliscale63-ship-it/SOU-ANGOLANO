@@ -1,219 +1,212 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="/vite.svg">
-    <meta name="generator" content="Hostinger Horizons">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cupom da Vez - Ganhe Dinheiro com Cupons</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOU ANGOLANO - Conhecimento vale Ouro</title>
 
-    <link rel="stylesheet" href="index-9d423ca4.css">
-    <script type="module">
-        window.onerror = (message, source, lineno, colno, errorObj) => {
-            const errorDetails = errorObj ? JSON.stringify({
-                name: errorObj.name,
-                message: errorObj.message,
-                stack: errorObj.stack,
-                source,
-                lineno,
-                colno,
-            }) : null;
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
-            window.parent.postMessage({
-                type: 'horizons-runtime-error',
-                message,
-                error: errorDetails
-            }, '*');
-        };
-    </script>
-    <script type="module">
-        const observer = new MutationObserver((mutations) => {
-            for (const mutation of mutations) {
-                for (const addedNode of mutation.addedNodes) {
-                    if (
-                        addedNode.nodeType === Node.ELEMENT_NODE &&
-                        (
-                            addedNode.tagName?.toLowerCase() === 'vite-error-overlay' ||
-                            addedNode.classList?.contains('backdrop')
-                        )
-                    ) {
-                        handleViteOverlay(addedNode);
-                    }
-                }
-            }
-        });
-
-        observer.observe(document.documentElement, {
-            childList: true,
-            subtree: true
-        });
-
-        function handleViteOverlay(node) {
-            if (!node.shadowRoot) {
-                return;
-            }
-
-            const backdrop = node.shadowRoot.querySelector('.backdrop');
-
-            if (backdrop) {
-                const overlayHtml = backdrop.outerHTML;
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(overlayHtml, 'text/html');
-                const messageBodyElement = doc.querySelector('.message-body');
-                const fileElement = doc.querySelector('.file');
-                const messageText = messageBodyElement ? messageBodyElement.textContent.trim() : '';
-                const fileText = fileElement ? fileElement.textContent.trim() : '';
-                const error = messageText + (fileText ? ' File:' + fileText : '');
-
-                window.parent.postMessage({
-                    type: 'horizons-vite-error',
-                    error,
-                }, '*');
-            }
-        }
-    </script>
-    <script type="module">
-        const originalConsoleError = console.error;
-        console.error = function (...args) {
-            originalConsoleError.apply(console, args);
-
-            let errorString = '';
-
-            for (let i = 0; i < args.length; i++) {
-                const arg = args[i];
-                if (arg instanceof Error) {
-                    errorString = arg.stack || `${arg.name}: ${arg.message}`;
-                    break;
-                }
-            }
-
-            if (!errorString) {
-                errorString = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
-            }
-
-            window.parent.postMessage({
-                type: 'horizons-console-error',
-                error: errorString
-            }, '*');
-        };
-    </script>
-    <script type="module">
-        const originalFetch = window.fetch;
-
-        window.fetch = function (...args) {
-            const url = args[0] instanceof Request ? args[0].url : args[0];
-
-            // Skip WebSocket URLs
-            if (url.startsWith('ws:') || url.startsWith('wss:')) {
-                return originalFetch.apply(this, args);
-            }
-
-            return originalFetch.apply(this, args)
-                .then(async response => {
-                    const contentType = response.headers.get('Content-Type') || '';
-
-                    // Exclude HTML document responses
-                    const isDocumentResponse =
-                        contentType.includes('text/html') ||
-                        contentType.includes('application/xhtml+xml');
-
-                    if (!response.ok && !isDocumentResponse) {
-                        const responseClone = response.clone();
-                        const errorFromRes = await responseClone.text();
-                        const requestUrl = response.url;
-                        console.error(`Fetch error from ${requestUrl}: ${errorFromRes}`);
-                    }
-
-                    return response;
-                })
-                .catch(error => {
-                    if (!url.match(/.html?$/i)) {
-                        console.error(error);
-                    }
-
-                    throw error;
-                });
-        };
-    </script>
-    <script id="utmify-pixel" async="" defer="" src="https://cdn.utmify.com.br/scripts/pixel/pixel.js"></script>
-    <meta name="description"
-        content="Participe do Cupom da Vez e ganhe dinheiro validando cupons de desconto. Sistema seguro e confiável para renda extra."
-        data-react-helmet="true">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-react-helmet="true">
-    <meta name="theme-color" content="#ffd700" data-react-helmet="true">
+<style>
+:root {
+--angola-red:#E31B23;
+--angola-yellow:#F8D308;
+--angola-black:#000;
+--gold-gradient:linear-gradient(135deg,#F8D308 0%,#D4AF37 50%,#F8D308 100%);
+}
+body{font-family:'Inter',sans-serif;background:#000;color:#fff;margin:0;overflow-x:hidden}
+.glass-card{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1)}
+.btn{transition:all .2s}
+.btn:hover{transform:scale(1.03)}
+.btn-ganho{background:var(--gold-gradient);color:#000;font-weight:900}
+.notas-saque{position:fixed;top:-50px;font-size:20px;color:var(--angola-yellow);animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+</style>
 </head>
 
 <body>
-    <div id="root">
-        <div class="mobile-container">
-            <div class="min-h-screen bg-white flex flex-col">
-                <header class="w-full p-4 flex justify-center">
-                    <div class="flex items-center">
-                        <h1 class="text-4xl font-black text-black">cupom</h1>
-                        <div class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center ml-1"><span
-                                class="text-black font-bold text-sm">$</span></div>
-                        <div class="ml-1"><span class="text-sm font-medium text-gray-600 block leading-tight">DA
-                                VEZ</span></div>
-                    </div>
-                </header>
-                <main class="w-full max-w-md p-4 flex-grow flex flex-col mx-auto">
-                    <div class="bg-red-600 text-white p-4 rounded-xl text-center mb-6 shadow-lg"
-                        style="opacity: 1; transform: none;">
-                        <p class="font-bold text-lg">TEMPO LIMITADO!</p>
-                        <p id="contador" class="text-5xl font-bold tracking-wider my-2">20:00</p>
-                        <p class="text-sm">Complete seu checkout antes que o tempo acabe</p>
-                    </div>
-                    <div class="bg-green-100 border-2 border-green-300 p-6 rounded-xl text-center mb-6 shadow-lg"
-                        style="opacity: 1; transform: none;">
-                        <h2 class="text-2xl font-bold text-green-800">Seu Saque Aprovado!</h2>
-                        <p class="text-4xl font-bold text-green-700 my-4 flex items-center justify-center"><span
-                                class="text-4xl mr-2" role="img" aria-label="money bag">💰</span>Kz&nbsp;101.500,00</p>
-                        <p class="text-green-700 font-medium text-sm">Valor será transferido após confirmação do
-                            pagamento</p>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-md" style="opacity: 1; transform: none;">
-                        <div style="position: relative; width: 100%; padding-top: 375%;"><iframe
-                                src="https://www.kintu.org/product/1e69da3f-7e13-4b79-9954-e68e616a239e"
-                                title="Checkout" allowfullscreen=""
-                                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: none;"></iframe>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-        <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
-            <ol tabindex="-1"
-                class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
-            </ol>
-        </div>
-    </div>
 
-    <script>
-        let tempo = 1200; // 20 minutos em segundos
-        const contador = document.getElementById("contador");
+<div class="min-h-screen flex items-center justify-center p-4">
+<div class="max-w-3xl w-full glass-card p-10 rounded-3xl text-center">
 
+<div class="flex justify-between mb-6 text-sm">
+<div>Questão <span id="qAtual">1</span>/7</div>
+<div>Ganhos: <span id="ganhos">0</span></div>
+<div>Perdas: <span id="perdas">0</span></div>
+</div>
 
-        const intervalo = setInterval(() => {
-            const minutos = Math.floor(tempo / 60);
-            const segundos = tempo % 60;
+<h2 id="pergunta" class="text-2xl font-black mb-8"></h2>
 
-            contador.textContent =
-                ` ${String(minutos).padStart(2, "0")}:${String(segundos).padStart(2, "0")}`;
+<div id="respostas" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"></div>
 
-            tempo--;
+<div class="text-xl font-black text-yellow-400">
+Saldo: <span id="saldo">0</span> Kz
+</div>
 
-            if (tempo < 0) {
-                clearInterval(intervalo);
-                contador.textContent = "Pode continuar 👇";
-                botao.style.display = "inline-block";
-            }
-        }, 1000);
+<div class="mt-4 text-sm">
+Tempo: <span id="tempo">15</span>s
+</div>
 
-    </script>
+</div>
+</div>
 
+<script>
 
+const perguntas = [
+{
+pergunta:"Qual é a capital de Angola?",
+opcoes:["Benguela","Huambo","Luanda","Lubango"],
+correta:2
+},
+{
+pergunta:"Qual é a moeda de Angola?",
+opcoes:["Real","Kwanza","Euro","Dólar"],
+correta:1
+},
+{
+pergunta:"Quem foi o primeiro presidente de Angola?",
+opcoes:["Agostinho Neto","José Eduardo","João Lourenço","Savimbi"],
+correta:0
+},
+{
+pergunta:"Qual oceano banha Angola?",
+opcoes:["Índico","Pacífico","Atlântico","Ártico"],
+correta:2
+},
+{
+pergunta:"Qual província é conhecida como terra do café?",
+opcoes:["Uíge","Huíla","Namibe","Cunene"],
+correta:0
+},
+{
+pergunta:"Ano da independência de Angola?",
+opcoes:["1961","1975","1980","1990"],
+correta:1
+},
+{
+pergunta:"Cidade mais populosa?",
+opcoes:["Huambo","Luanda","Benguela","Cabinda"],
+correta:1
+}
+];
 
+let indice = 0;
+let saldo = 0;
+let ganhos = 0;
+let perdas = 0;
+let tempo = 15;
+let intervalo;
+
+const perguntaEl = document.getElementById("pergunta");
+const respostasEl = document.getElementById("respostas");
+const saldoEl = document.getElementById("saldo");
+const ganhosEl = document.getElementById("ganhos");
+const perdasEl = document.getElementById("perdas");
+const tempoEl = document.getElementById("tempo");
+const qAtualEl = document.getElementById("qAtual");
+
+function iniciarTempo(){
+tempo = 15;
+tempoEl.textContent = tempo;
+intervalo = setInterval(()=>{
+tempo--;
+tempoEl.textContent = tempo;
+if(tempo<=0){
+clearInterval(intervalo);
+perdeu();
+}
+},1000);
+}
+
+function carregarPergunta(){
+if(indice>=perguntas.length){
+mostrarFinal();
+return;
+}
+
+const p = perguntas[indice];
+perguntaEl.textContent = p.pergunta;
+respostasEl.innerHTML="";
+qAtualEl.textContent = indice+1;
+
+p.opcoes.forEach((opcao,i)=>{
+const btn = document.createElement("button");
+btn.textContent = opcao;
+btn.className="btn p-4 bg-zinc-800 rounded-xl font-bold";
+btn.onclick = ()=>verificar(i);
+respostasEl.appendChild(btn);
+});
+
+iniciarTempo();
+}
+
+function verificar(i){
+clearInterval(intervalo);
+const correta = perguntas[indice].correta;
+
+if(i===correta){
+ganhou();
+}else{
+perdeu();
+}
+}
+
+function ganhou(){
+ganhos++;
+saldo+=10000;
+ganhosEl.textContent=ganhos;
+saldoEl.textContent=saldo;
+
+somVitoria();
+chuvaDinheiro();
+
+indice++;
+setTimeout(carregarPergunta,1500);
+}
+
+function perdeu(){
+perdas++;
+perdasEl.textContent=perdas;
+indice++;
+setTimeout(carregarPergunta,1500);
+}
+
+function mostrarFinal(){
+document.body.innerHTML=`
+<div class="min-h-screen flex items-center justify-center bg-black text-white">
+<div class="glass-card p-10 rounded-3xl text-center">
+<h1 class="text-4xl font-black text-yellow-400 mb-6">🎉 Jogo Finalizado</h1>
+<p class="text-xl mb-4">Saldo Final: ${saldo} Kz</p>
+<p class="mb-6">Ganhos: ${ganhos} | Perdas: ${perdas}</p>
+<button onclick="location.reload()" class="btn-ganho px-8 py-4 rounded-full">
+Jogar Novamente
+</button>
+</div>
+</div>
+`;
+}
+
+function chuvaDinheiro(){
+for(let i=0;i<20;i++){
+const nota=document.createElement("div");
+nota.textContent="💸";
+nota.className="notas-saque";
+nota.style.left=Math.random()*100+"%";
+nota.style.animationDuration=(Math.random()*2+2)+"s";
+document.body.appendChild(nota);
+setTimeout(()=>nota.remove(),3000);
+}
+}
+
+function somVitoria(){
+const audio = new Audio("https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg");
+audio.play();
+}
+
+carregarPergunta();
+
+</script>
 
 </body>
-
 </html>
