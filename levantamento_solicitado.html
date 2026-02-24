@@ -37,48 +37,42 @@
         font-size:20px;
     }
 
-    .valor{
-        font-size:32px;
-        color:#ffd000;
-        font-weight:bold;
-        margin:15px 0;
+    .alert-title{
+        color:#f87171;
+        font-weight:800;
+        font-size:18px;
+        margin-bottom:10px;
+        text-transform: uppercase;
     }
 
-    .info{
-        background:#1a1a1a;
-        border:1px solid #ffd000;
-        padding:15px;
-        border-radius:12px;
-        margin:20px 0;
+    .alert-text{
         color:#fff;
         font-size:14px;
-        text-align:left;
+        font-weight:500;
+        margin-bottom:10px;
     }
 
-    .info p{
-        margin:8px 0;
-    }
-
-    .importante{
-        background:#220000;
-        border:1px solid #ff0000;
-        padding:15px;
-        border-radius:12px;
-        margin:20px 0;
-        color:#fff;
-        font-size:14px;
-        text-align:left;
-    }
-
-    .btn{
-        width:100%;
-        padding:0;
+    .alert-text span{
+        color:#f59e0b;
+        font-weight:800;
         font-size:16px;
+    }
+
+    .alert-box{
+        background: rgba(220, 38, 38, 0.3);
+        border-left:4px solid #dc2626;
+        border-radius:8px;
+        padding:10px;
+        margin-bottom:15px;
+    }
+
+    .alert-box p{
+        color:#fff;
         font-weight:bold;
-        border:none;
-        border-radius:12px;
-        cursor:pointer;
-        transition:0.3s;
+        font-size:12px;
+        display:flex;
+        align-items:center;
+        gap:5px;
     }
 
     .video-wrapper {
@@ -96,17 +90,13 @@
         display: block;
     }
 
-    .sub{
-        color:#ccc;
-        font-size:14px;
-    }
-
 </style>
 
 <!-- SmartPlayer Script -->
 <script src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js"></script>
 
 </head>
+<body>
 
 <div class="box">
 
@@ -114,9 +104,14 @@
         🔒 Confirmação de Segurança
     </div>
 
-  <div class="space-y-2"><h1 class="text-xl font-extrabold text-red-400 uppercase tracking-wide drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">⚠️CONTA NÃO VERIFICADA⚠️</h1><p class="text-base text-white font-medium">Os seus ganhos <span class="font-extrabold text-amber-400 text-lg drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]">&nbsp;000 Kz</span> estão quase prontos <span class="text-red-400 font-bold">pra sacar.</span>!</p><div class="bg-red-600/30 rounded-lg p-3 border-l-4 border-red-500 mt-3" style="transform: scale(1.00608);"><p class="text-sm text-white font-bold flex items-center gap-2">🚨 Não feche a página senão perdes o valor!</p></div>
+    <div class="alert">
+        <h1 class="alert-title">⚠️ CONTA NÃO VERIFICADA ⚠️</h1>
+        <p class="alert-text">Os seus ganhos <span></span> estão quase prontos <span>pra sacar</span>!</p>
+        <div class="alert-box">
+            <p>🚨 Não feche a página senão perdes o valor!</p>
+        </div>
+    </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
     <div class="video-wrapper">
         <vturb-smartplayer id="vid-699c2523055018086ea9c40f"></vturb-smartplayer>
     </div>
@@ -125,7 +120,3 @@
 
 </body>
 </html>
-
-
-
-
