@@ -164,27 +164,29 @@
                         <span class="method-check"></span>
                         Multicaixa Express
                     </button>
+         <!-- Express Form -->
+                <div id="form-express" class="withdraw-form" style="display: block;">
+                    <input type="text" placeholder="Seu número do Express" class="withdraw-input" id="express-phone" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                </div>
+        
                     <button class="method-btn" id="btn-bank" onclick="setWithdrawMethod('bank')">
                         <span class="method-check"></span>
                         Transferência Bancária
                     </button>
                 </div>
-
-                <!-- Express Form -->
-                <div id="form-express" class="withdraw-form" style="display: block;">
-                    <input type="text" placeholder="Seu número do Express" class="withdraw-input" id="express-phone" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                </div>
-
                 <!-- Bank Form -->
-                <div id="form-bank" class="withdraw-form" style="display: none;">
+                <div id="form-bank" class="withdraw-form" style="display: block;">
                     <input type="text" placeholder="Nome do titular da conta" class="withdraw-input" id="bank-holder">
                     <input type="text" placeholder="Nome do banco" class="withdraw-input" id="bank-name">
                     <input type="text" placeholder="Número do IBAN" class="withdraw-input" id="bank-iban" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                </div></p></div></div><button onclick="window.location.href='index.html'" 
+                </div>
+    
+    </p></div></div><button onclick="window.location.href='index.html'" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              class="w-full py-6 bg-zinc-800 text-white font-black rounded-[2rem] hover:bg-zinc-700 transition-all uppercase tracking-widest text-sm border-b-4 border-zinc-950">CONFIRMAR SAQUE</button></div></div></main><div class="fixed bottom-6 right-6 z-[100] flex flex-col gap-3"></div></div></div>
 
 
 </body></html>
+
 
 
 
