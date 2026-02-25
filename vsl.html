@@ -38,43 +38,42 @@ body {
 <body>
 
 <div class="min-h-screen flex items-center justify-center p-6">
-<div class="max-w-3xl w-full">
-<div class="glass-card p-12 rounded-[5rem] text-center shadow-2xl relative">
+  <div class="max-w-3xl w-full">
+    <div class="glass-card p-12 rounded-[5rem] text-center shadow-2xl relative">
 
-<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-600 px-8 py-2 rounded-full font-black uppercase text-xs">
-SAIBA COMO VERIFICAR
-</div>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-600 px-8 py-2 rounded-full font-black uppercase text-xs">
+      SAIBA COMO VERIFICAR
+      </div>
 
-<h2 class="text-4xl md:text-5xl font-black text-red-600 italic uppercase mb-12 mt-6">
-ASSISTA ANTES DE CONTINUAR
-</h2>
+      <h2 class="text-4xl md:text-5xl font-black text-red-600 italic uppercase mb-12 mt-6">
+        ÚLTIMO PASSO PARA O SAQUE
+      </h2>
 
-<!-- 🔥 VÍDEO INCORPORADO NO LUGAR DA VALIDAÇÃO -->
-<div class="w-full rounded-lg overflow-hidden mb-12">
-  <div>
-    <vturb-smartplayer 
-    id="vid-6992fb448f7f5267ea0df918" 
-    style="display:block;margin:0 auto;width:100%;" 
-    original-id="vid-6992fb448f7f5267ea0df918">
-    <div slot="preload" class="preload preload--netflix" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0;">
-        <div id="loading_6992fb448f7f5267ea0df918" class="vt-loading-wrapper">
-            <div class="vt-loading-android-spinner"></div>
-            <div class="vt-loading-percentage">99%</div>
-        </div>
+      <!-- 🔥 VÍDEO INCORPORADO -->
+      <div class="w-full rounded-lg overflow-hidden mb-12">
+        <vturb-smartplayer 
+            id="vid-6992fb448f7f5267ea0df918" 
+            original-id="vid-6992fb448f7f5267ea0df918"
+            style="display:block;margin:0 auto;width:100%;">
+          <div slot="preload" class="preload preload--netflix" style="position: relative; width: 100%; padding-top: 56.25%; z-index: 0;">
+            <div id="loading_6992fb448f7f5267ea0df918" class="vt-loading-wrapper">
+              <div class="vt-loading-android-spinner"></div>
+              <div class="vt-loading-percentage">0%</div>
+            </div>
+          </div>
+        </vturb-smartplayer>
+      </div>
+
+      <button class="w-full py-8 btn-ganho rounded-[3rem] text-2xl uppercase shadow-xl hover:scale-105 transition-all">
+        EMITIR A FATURA DE VERIFICAÇÃO
+      </button>
+
     </div>
-</vturb-smartplayer>
   </div>
 </div>
 
-<button class="w-full py-8 btn-ganho rounded-[3rem] text-2xl uppercase shadow-xl hover:scale-105 transition-all">
-EMITIR A FATURA DE VERIFICAÇÃO
-</button>
-
-</div>
-</div>
-</div>
+<!-- Script do SmartPlayer necessário para o vídeo funcionar -->
+<script src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" id="vturb-smartplayer-js" async></script>
 
 </body>
 </html>
-
-
