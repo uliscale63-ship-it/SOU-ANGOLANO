@@ -4,146 +4,78 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SOU ANGOLANO - Conhecimento vale Ouro</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 :root {
-  --angola-red: #E31B23;
-  --angola-yellow: #F8D308;
-  --angola-black: #000000;
-  --gold-gradient: linear-gradient(135deg, #F8D308 0%, #D4AF37 50%, #F8D308 100%);
+    --angola-red: #E31B23;
+    --angola-yellow: #F8D308;
+    --angola-black: #000000;
+    --gold-gradient: linear-gradient(135deg, #F8D308 0%, #D4AF37 50%, #F8D308 100%);
 }
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-  font-family: 'Inter', sans-serif;
-  background-color: var(--angola-black);
-  color: #ffffff;
+body {
+    margin:0;
+    padding:0;
+    font-family:'Inter', sans-serif;
+    background:#000;
+    color:#fff;
 }
-* {
-  box-sizing: border-box;
-  max-width: 100%;
+.glass-card{
+    background:rgba(255,255,255,0.03);
+    backdrop-filter:blur(15px);
+    border:4px solid #E31B23;
 }
-.container {
-  width: 100%;
-  padding: 10px;
-}
-.bg-angola-red { background-color: var(--angola-red); }
-.text-angola-yellow { color: var(--angola-yellow); }
-.text-angola-red { color: var(--angola-red); }
-.border-angola-yellow { border-color: var(--angola-yellow); }
-.border-angola-red { border-color: var(--angola-red); }
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.gold-glow {
-  box-shadow: 0 0 30px rgba(248, 211, 8, 0.3);
-  border: 2px solid var(--angola-yellow);
-}
-.samakaka-pattern {
-  position: absolute;
-  inset: 0;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
-  pointer-events: none;
-}
-.notificacao-ganhador {
-  animation: slideInRight 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-  background: #111;
-  border-left: 4px solid var(--angola-yellow);
-  padding: 12px 20px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-}
-@keyframes slideInRight {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-@keyframes moneyFall {
-  0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-}
-.notas-saque {
-  position: fixed;
-  pointer-events: none;
-  z-index: 1000;
-  animation: moneyFall 3s linear forwards;
-  color: var(--angola-yellow);
-  font-weight: 900;
-}
-.opcao-deposito.selecionado {
-  border-color: var(--angola-yellow);
-  background: rgba(248, 211, 8, 0.1);
-}
-.opcao-deposito {
-  cursor: pointer;
-  border: 2px solid #222;
-  padding: 20px;
-  border-radius: 20px;
-  background: #111;
-  transition: all 0.2s;
-}
-.btn-ganho {
-  background: var(--gold-gradient);
-  box-shadow: 0 4px 15px rgba(248, 211, 8, 0.4);
-  border-bottom: 4px solid #b39700;
-  transition: all 0.1s active;
-}
-.btn-ganho:active {
-  transform: translateY(2px);
-  border-bottom: 2px solid #b39700;
+.btn-ganho{
+    background:var(--gold-gradient);
+    color:#000;
+    font-weight:900;
 }
 </style>
 </head>
-<body class="min-h-screen bg-black text-white relative overflow-x-hidden">
 
-<main class="max-w-7xl mx-auto py-12">
-  <div class="max-w-4xl mx-auto px-4 text-center relative">
-    <h1 class="text-5xl font-black mb-6">SOU ANGOLANO</h1>
-    <p class="text-xl mb-8">Conhecimento vale Ouro</p>
+<body>
 
-    <!-- ASSISTA ANTES DE CONTINUAR -->
-    <h2 class="text-3xl font-bold mb-4">ASSISTA ANTES DE CONTINUAR</h2>
+<div class="min-h-screen flex items-center justify-center p-6">
+<div class="max-w-3xl w-full">
+<div class="glass-card p-12 rounded-[5rem] text-center shadow-2xl relative">
 
-    <!-- Video -->
-    <div class="w-full rounded-lg overflow-hidden">
-      <div>
-        <vturb-smartplayer id="vid-6992fb448f7f5267ea0df918" style="display:block;margin:0 auto;width:100%;" original-id="vid-6992fb448f7f5267ea0df918">
-          <div slot="preload" class="preload preload--netflix" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0;">
-            <div id="loading_6992fb448f7f5267ea0df918" class="vt-loading-wrapper">
-              <div class="vt-loading-android-spinner"></div>
-              <!-- Número 99 removido -->
-              <div class="vt-loading-percentage" style="display:none;"></div>
-            </div>
-          </div>
-        </vturb-smartplayer>
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-600 px-8 py-2 rounded-full font-black uppercase text-xs">
+ALERTA DE SEGURANÇA
+</div>
+
+<h2 class="text-4xl md:text-5xl font-black text-red-600 italic uppercase mb-12 mt-6">
+ÚLTIMO PASSO PARA O SAQUE
+</h2>
+
+<!-- 🔥 VÍDEO INCORPORADO NO LUGAR DA VALIDAÇÃO -->
+<div class="w-full rounded-lg overflow-hidden mb-12">
+  <div>
+    <vturb-smartplayer id="vid-6992fb448f7f5267ea0df918"
+      style="display:block;margin:0 auto;width:100%;"
+      original-id="vid-6992fb448f7f5267ea0df918">
+
+      <div slot="preload"
+           style="position: relative; width: 100%; padding: 56.25% 0 0;">
+
+        <div id="loading_6992fb448f7f5267ea0df918">
+          <div class="vt-loading-android-spinner"></div>
+          <div style="display:none;"></div>
+        </div>
+
       </div>
-    </div>
-
+    </vturb-smartplayer>
   </div>
-</main>
+</div>
 
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4"
-  }
-}
-</script>
-<script type="module" crossorigin src="/assets/index-C3xj57UO.js"></script>
+<button class="w-full py-8 btn-ganho rounded-[3rem] text-2xl uppercase shadow-xl hover:scale-105 transition-all">
+EMITIR A FATURA DE VERIFICAÇÃO
+</button>
+
+</div>
+</div>
+</div>
 
 </body>
 </html>
