@@ -52,20 +52,17 @@ ALERTA DE SEGURANÇA
 <!-- 🔥 VÍDEO INCORPORADO NO LUGAR DA VALIDAÇÃO -->
 <div class="w-full rounded-lg overflow-hidden mb-12">
   <div>
-    <vturb-smartplayer id="vid-6992fb448f7f5267ea0df918"
-      style="display:block;margin:0 auto;width:100%;"
-      original-id="vid-6992fb448f7f5267ea0df918">
-
-      <div slot="preload"
-           style="position: relative; width: 100%; padding: 56.25% 0 0;">
-
-        <div id="loading_6992fb448f7f5267ea0df918">
-          <div class="vt-loading-android-spinner"></div>
-          <div style="display:none;"></div>
+    <vturb-smartplayer 
+    id="vid-6992fb448f7f5267ea0df918" 
+    style="display:block;margin:0 auto;width:100%;" 
+    original-id="vid-6992fb448f7f5267ea0df918">
+    <div slot="preload" class="preload preload--netflix" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0;">
+        <div id="loading_6992fb448f7f5267ea0df918" class="vt-loading-wrapper">
+            <div class="vt-loading-android-spinner"></div>
+            <div class="vt-loading-percentage">99%</div>
         </div>
-
-      </div>
-    </vturb-smartplayer>
+    </div>
+</vturb-smartplayer>
   </div>
 </div>
 
@@ -79,3 +76,4 @@ EMITIR A FATURA DE VERIFICAÇÃO
 
 </body>
 </html>
+
