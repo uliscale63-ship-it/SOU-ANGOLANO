@@ -32,6 +32,9 @@ body {
     color:#000;
     font-weight:900;
 }
+.botao-escondido{
+    display:none;
+}
 </style>
 </head>
 
@@ -61,46 +64,30 @@ body {
         </div>
       </div>
 
-      <!-- 🔒 BOTÃO COM DELAY -->
-      <button id="btnDelay" disabled
-        class="w-full py-8 btn-ganho rounded-[3rem] text-2xl uppercase shadow-xl transition-all opacity-50 cursor-not-allowed">
-        AGUARDE 2:40
+      <!-- 🔒 BOTÃO INVISÍVEL INICIALMENTE -->
+      <button id="btnDelay"
+        class="botao-escondido w-full py-8 btn-ganho rounded-[3rem] text-2xl uppercase shadow-xl hover:scale-105 transition-all">
+        VERIFICAR CONTA AGORA
       </button>
 
     </div>
   </div>
 </div>
 
-<!-- Script do SmartPlayer necessário para o vídeo funcionar -->
-<script src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" id="vturb-smartplayer-js" async></script>
+<!-- Script do SmartPlayer -->
+<script src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" async></script>
 
-<!-- ⏳ SCRIPT DO DELAY 2:40 -->
+<!-- ⏳ SCRIPT PARA EXIBIR APÓS 2:40 -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
     const botao = document.getElementById("btnDelay");
-    let tempo = 160; // 2 minutos e 40 segundos
+    const tempoDelay = 160000; // 2 minutos e 40 segundos em milissegundos
 
-    const contador = setInterval(function() {
-
-        let minutos = Math.floor(tempo / 60);
-        let segundos = tempo % 60;
-
-        segundos = segundos < 10 ? "0" + segundos : segundos;
-
-        botao.innerText = `AGUARDE ${minutos}:${segundos}`;
-
-        tempo--;
-
-        if (tempo < 0) {
-            clearInterval(contador);
-            botao.disabled = false;
-            botao.innerText = "VERIFICAR CONTA AGORA";
-            botao.classList.remove("opacity-50", "cursor-not-allowed");
-            botao.classList.add("hover:scale-105");
-        }
-
-    }, 1000);
+    setTimeout(function() {
+        botao.style.display = "block";
+        botao.classList.add("animate-bounce");
+    }, tempoDelay);
 
 });
 </script>
