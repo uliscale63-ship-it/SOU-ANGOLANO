@@ -1,290 +1,93 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="/vite.svg">
-    <meta name="generator" content="Hostinger Horizons">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cupom da Vez - Ganhe Dinheiro com Cupons</title>
-    <link rel="stylesheet" href="index-9d423ca4.css">
-    <script type="module">
-        window.onerror = (message, source, lineno, colno, errorObj) => {
-            const errorDetails = errorObj ? JSON.stringify({
-                name: errorObj.name,
-                message: errorObj.message,
-                stack: errorObj.stack,
-                source,
-                lineno,
-                colno,
-            }) : null;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOU ANGOLANO - Conhecimento vale Ouro</title>
 
-            window.parent.postMessage({
-                type: 'horizons-runtime-error',
-                message,
-                error: errorDetails
-            }, '*');
-        };
-    </script>
-    <script type="module">
-        const observer = new MutationObserver((mutations) => {
-            for (const mutation of mutations) {
-                for (const addedNode of mutation.addedNodes) {
-                    if (
-                        addedNode.nodeType === Node.ELEMENT_NODE &&
-                        (
-                            addedNode.tagName?.toLowerCase() === 'vite-error-overlay' ||
-                            addedNode.classList?.contains('backdrop')
-                        )
-                    ) {
-                        handleViteOverlay(addedNode);
-                    }
-                }
-            }
-        });
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-        observer.observe(document.documentElement, {
-            childList: true,
-            subtree: true
-        });
-
-        function handleViteOverlay(node) {
-            if (!node.shadowRoot) {
-                return;
-            }
-
-            const backdrop = node.shadowRoot.querySelector('.backdrop');
-
-            if (backdrop) {
-                const overlayHtml = backdrop.outerHTML;
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(overlayHtml, 'text/html');
-                const messageBodyElement = doc.querySelector('.message-body');
-                const fileElement = doc.querySelector('.file');
-                const messageText = messageBodyElement ? messageBodyElement.textContent.trim() : '';
-                const fileText = fileElement ? fileElement.textContent.trim() : '';
-                const error = messageText + (fileText ? ' File:' + fileText : '');
-
-                window.parent.postMessage({
-                    type: 'horizons-vite-error',
-                    error,
-                }, '*');
-            }
-        }
-    </script>
-    <script type="module">
-        const originalConsoleError = console.error;
-        console.error = function (...args) {
-            originalConsoleError.apply(console, args);
-
-            let errorString = '';
-
-            for (let i = 0; i < args.length; i++) {
-                const arg = args[i];
-                if (arg instanceof Error) {
-                    errorString = arg.stack || `${arg.name}: ${arg.message}`;
-                    break;
-                }
-            }
-
-            if (!errorString) {
-                errorString = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
-            }
-
-            window.parent.postMessage({
-                type: 'horizons-console-error',
-                error: errorString
-            }, '*');
-        };
-    </script>
-    <script type="module">
-        const originalFetch = window.fetch;
-
-        window.fetch = function (...args) {
-            const url = args[0] instanceof Request ? args[0].url : args[0];
-
-            // Skip WebSocket URLs
-            if (url.startsWith('ws:') || url.startsWith('wss:')) {
-                return originalFetch.apply(this, args);
-            }
-
-            return originalFetch.apply(this, args)
-                .then(async response => {
-                    const contentType = response.headers.get('Content-Type') || '';
-
-                    // Exclude HTML document responses
-                    const isDocumentResponse =
-                        contentType.includes('text/html') ||
-                        contentType.includes('application/xhtml+xml');
-
-                    if (!response.ok && !isDocumentResponse) {
-                        const responseClone = response.clone();
-                        const errorFromRes = await responseClone.text();
-                        const requestUrl = response.url;
-                        console.error(`Fetch error from ${requestUrl}: ${errorFromRes}`);
-                    }
-
-                    return response;
-                })
-                .catch(error => {
-                    if (!url.match(/.html?$/i)) {
-                        console.error(error);
-                    }
-
-                    throw error;
-                });
-        };
-    </script>
-
-
-
-    <style>
-        /* Botão Fixo e Centralizado */
-        #delayed-button-container {
-            display: none;
-            /* Mantém oculto até o timer */
-            position: fixed;
-            /* Fixa na tela */
-            bottom: 30px;
-            /* Distância do rodapé */
-            left: 50%;
-            /* Move para o meio horizontal */
-            transform: translateX(-50%);
-            /* Ajuste fino para centralizar exato */
-            z-index: 9999;
-            /* Garante que fica acima do vídeo e outros elementos */
-            width: 90%;
-            /* Largura para mobile */
-            max-width: 400px;
-            /* Largura máxima para PC */
-            justify-content: center;
-        }
-
-        .btn-ganhar {
-            display: block;
-            width: 80%;
-            background-color: #22c55e;
-            color: white;
-            font-weight: 800;
-            font-size: 1.2rem;
-            padding: 1.2rem;
-            border-radius: 99px;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            border: none;
-            cursor: pointer;
-            animation: pulse 2s infinite;
-            font-family: sans-serif;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-    </style>
-
-
-
-
-    <script id="utmify-pixel" async="" defer="" src="https://cdn.utmify.com.br/scripts/pixel/pixel.js"></script>
-    <meta name="description"
-        content="Participe do Cupom da Vez e ganhe dinheiro validando cupons de desconto. Sistema seguro e confiável para renda extra."
-        data-react-helmet="true">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-react-helmet="true">
-    <meta name="theme-color" content="#ffd700" data-react-helmet="true">
+<style>
+:root {
+    --angola-red: #E31B23;
+    --angola-yellow: #F8D308;
+    --angola-black: #000000;
+    --gold-gradient: linear-gradient(135deg, #F8D308 0%, #D4AF37 50%, #F8D308 100%);
+}
+body {
+    margin:0;
+    padding:0;
+    font-family:'Inter', sans-serif;
+    background:#000;
+    color:#fff;
+}
+.glass-card{
+    background:rgba(255,255,255,0.03);
+    backdrop-filter:blur(15px);
+    border:4px solid #E31B23;
+}
+.btn-ganho{
+    background:var(--gold-gradient);
+    color:#000;
+    font-weight:900;
+}
+.botao-escondido{
+    display:none;
+}
+</style>
 </head>
 
 <body>
-    <div id="root">
-        <div class="mobile-container">
-            <div class="min-h-screen bg-white flex flex-col">
-                <div class="flex justify-between items-center p-4 bg-white shadow-sm"
-                    style="opacity: 1; transform: none;">
-                    <div class="flex items-center">
-                        <h1 class="text-2xl font-black text-black">cupom</h1>
-                        <div class="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center ml-1"><span
-                                class="text-black font-bold text-xs">$</span></div>
-                        <div class="ml-1"><span class="text-xs font-medium text-gray-600 block leading-tight">DA
-                                VEZ</span></div>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-sm text-gray-500">Saldo:</p>
-                        <p class="text-lg font-bold text-green-600 bg-yellow-200 px-3 py-1 rounded-full">101.500 Kz</p>
-                    </div>
-                </div>
-                <main class="flex-grow flex flex-col items-center justify-center p-4 text-center">
-                    <div class="w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl mb-6"
-                        style="position: relative; padding-top: 216.296%; opacity: 1; transform: none;"><iframe
-                            id="panda-82bb5601-05b2-4e24-886a-e469a880226a"
-                            src="https://player-vz-a11b5e43-1b7.tv.pandavideo.com.br/embed/?v=82bb5601-05b2-4e24-886a-e469a880226a"
-                            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
-                            allowfullscreen="" fetchpriority="high"
-                            style="border: none; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;"></iframe>
-                    </div>
-                    <div class="bg-yellow-100 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-lg flex items-center max-w-2xl w-full mb-6"
-                        style="opacity: 1; transform: none;"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 mr-3 text-yellow-500">
-                            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
-                            <path d="M12 9v4"></path>
-                            <path d="M12 17h.01"></path>
-                        </svg>
-                        <p class="font-semibold text-center flex-1">Assista esse vídeo até o final para liberar o seu
-                            saque!</p>
-                    </div>
-                    <p class="text-gray-500 text-sm mt-auto mb-4">©️ 2026 Todos os direitos reservados - Cupom da Vez
-                    </p>
 
+<div class="min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-3xl w-full">
+    <div class="glass-card p-12 rounded-[5rem] text-center shadow-2xl relative">
 
-                    <footer class="sticky bottom-0 p-4 bg-white/80 backdrop-blur-sm"></footer>
-                    <!-- ÁREA DO BOTÃO (Aparecerá aqui no centro) -->
-                    <div id="delayed-button-container" style="display: none;">
-                        <a href="checkaut.html" class="btn-ganhar">
-                            SACAR AGORA
-                        </a>
-                    </div>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-600 px-8 py-2 rounded-full font-black uppercase text-xs">
+      SAIBA COMO REALIZAR O TEU SAQUE
+      </div>
 
+      <h2 class="text-4xl md:text-5xl font-black text-red-600 italic uppercase mb-12 mt-6">
+        APRENDA A SACAR O TEU DINHERO 👇
+      </h2>
 
-            </div>
+      <!-- 🔥 VÍDEO INCORPORADO -->
+      <div class="w-full rounded-lg overflow-hidden mb-12">
+        <div style="position:relative;padding-top:56.25%;">
+         <iframe id="panda-33d17fb1-1792-49a3-a263-e567c4d9be14" src="https://player-vz-6ac71b91-590.tv.pandavideo.com/embed/?v=33d17fb1-1792-49a3-a263-e567c4d9be14" style="border:none;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="720" height="360" fetchpriority="high"></iframe>
         </div>
-        <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
-            <ol tabindex="-1"
-                class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
-            </ol>
-        </div>
+      </div>
+
+      <!-- 🔒 BOTÃO INVISÍVEL INICIALMENTE -->
+      <button id="btnDelay"
+        onclick="window.location.href='payment.html'"  class="botao-escondido w-full py-8 btn-ganho rounded-[3rem] text-2xl uppercase shadow-xl hover:scale-105 transition-all">
+        SACAR DINHEIRO AGORA
+      </button>
+
     </div>
+  </div>
+</div>
 
+<!-- Script do SmartPlayer -->
+<script src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" async></script>
 
+<!-- ⏳ SCRIPT PARA EXIBIR APÓS 2:35 -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
 
+    const botao = document.getElementById("btnDelay");
+    const tempoDelay = 155000; // 2 minutos e 35 segundos em milissegundos
 
+    setTimeout(function() {
+        botao.style.display = "block";
+        botao.classList.add("animate-bounce");
+    }, tempoDelay);
 
-    <script>
-        // Lógica do Cronômetro: 2 minutos e 42 segundos = 162 segundos
-        const SECONDS_TO_WAIT = 163;
-
-        setTimeout(() => {
-            const btnContainer = document.getElementById('delayed-button-container');
-            if (btnContainer) {
-                btnContainer.style.display = 'flex';
-                // Rolagem suave para o botão no mobile
-                btnContainer.scrollIntoView({ behavior: 'smooth' });
-            }
-        }, SECONDS_TO_WAIT * 1000);
-    </script>
-
-
-
-
+});
+</script>
 
 </body>
-
 </html>
+
+
