@@ -23,6 +23,7 @@ body {
     background:rgba(255,255,255,0.03);
     backdrop-filter:blur(15px);
     border:none; /* BORDA REMOVIDA */
+    padding:0; /* remove padding extra */
 }
 .btn-ganho{
     background:var(--gold-gradient);
@@ -33,33 +34,33 @@ body {
     display:none;
 }
 
-/* VIDEO GRANDE DE PONTA A PONTA */
+/* VIDEO OCUPANDO QUASE TODA A TELA, SEM ESPAÇOS */
 .video-full{
     width:100%;
-    margin:0 auto 3rem auto;
+    height:90vh; /* quase toda altura da tela */
+    margin:0 auto;
 }
 .video-full iframe{
     width:100%;
-    height:80vh; /* OCUPA GRANDE PARTE DA TELA */
+    height:100%;
     border:none;
-    border-radius:1.5rem;
+    border-radius:1rem;
+    display:block;
 }
 </style>
 </head>
 
-<body>
-
-<div class="min-h-screen flex flex-col items-center justify-start pt-10 px-4">
+<body class="flex flex-col items-center justify-start">
 
     <!-- TEXTO BEM NO TOPO E CENTRALIZADO -->
-    <h2 class="text-4xl md:text-6xl font-black text-red-600 italic uppercase text-center mb-10">
+    <h2 class="text-4xl md:text-6xl font-black text-red-600 italic uppercase text-center mt-6 mb-6">
         ASSISTA ANTES DE CONTINUAR
     </h2>
 
-    <div class="w-full max-w-5xl">
-        <div class="glass-card p-6 rounded-[3rem] text-center shadow-2xl">
+    <div class="w-full max-w-6xl">
+        <div class="glass-card rounded-[3rem] shadow-2xl flex justify-center items-center">
 
-            <!-- VIDEO GRANDE -->
+            <!-- VÍDEO MAIOR -->
             <div class="video-full">
                 <iframe 
                   src="https://scripts.converteai.net/fe1e87df-6c9f-4cb2-8c29-b7f05e8afcab/players/6992fb448f7f5267ea0df918/v4/embed.html"
@@ -68,23 +69,20 @@ body {
                 </iframe>
             </div>
 
-            <!-- BOTÃO INVISÍVEL -->
-            <button id="btnDelay"
-              onclick="window.location.href='payment.html'"
-              class="botao-escondido w-full py-8 btn-ganho rounded-[3rem] text-2xl uppercase shadow-xl hover:scale-105 transition-all">
-              VERIFICAR CONTA AGORA
-            </button>
-
         </div>
     </div>
 
-</div>
+    <!-- BOTÃO INVISÍVEL -->
+    <button id="btnDelay"
+      onclick="window.location.href='payment.html'"
+      class="botao-escondido w-full max-w-3xl py-8 btn-ganho rounded-[3rem] text-2xl uppercase shadow-xl hover:scale-105 transition-all mt-6">
+      VERIFICAR CONTA AGORA
+    </button>
 
 <script src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" async></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-
     const botao = document.getElementById("btnDelay");
     const tempoDelay = 220000; // 3 minutos e 40 segundos
 
@@ -92,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function() {
         botao.style.display = "block";
         botao.classList.add("animate-bounce");
     }, tempoDelay);
-
 });
 </script>
 
