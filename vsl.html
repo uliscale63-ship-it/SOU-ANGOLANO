@@ -24,9 +24,6 @@ body {
     backdrop-filter:blur(15px);
     border:none;
     padding:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
 }
 .btn-ganho{
     background:var(--gold-gradient);
@@ -37,14 +34,14 @@ body {
     display:none;
 }
 
-/* VIDEO AJUSTADO COM MARGEM LATERAL */
-.video-full{
-    width:95%; /* um pouco menor para não colar nas laterais */
-    max-width:1200px;
-    height:85vh; /* um pouco menor que antes */
+/* VIDEO HORIZONTAL, OCUPANDO GRANDE PARTE DA TELA */
+.video-horizontal{
+    width:100%;
+    max-width:1200px; /* limita um pouco para ficar proporcional em telas muito grandes */
+    aspect-ratio:16/9; /* força proporção horizontal */
     margin:0 auto;
 }
-.video-full iframe{
+.video-horizontal iframe{
     width:100%;
     height:100%;
     border:none;
@@ -56,23 +53,19 @@ body {
 
 <body class="flex flex-col items-center justify-start">
 
-    <!-- TEXTO CENTRALIZADO NO TOPO -->
+    <!-- TEXTO NO TOPO -->
     <h2 class="text-4xl md:text-6xl font-black text-red-600 italic uppercase text-center mt-6 mb-6">
         ASSISTA ANTES DE CONTINUAR
     </h2>
 
-    <div class="w-full flex justify-center">
-        <div class="glass-card rounded-[3rem] shadow-2xl">
-
-            <!-- VIDEO -->
-            <div class="video-full">
-                <iframe 
-                  src="https://scripts.converteai.net/fe1e87df-6c9f-4cb2-8c29-b7f05e8afcab/players/6992fb448f7f5267ea0df918/v4/embed.html"
-                  allow="autoplay; fullscreen"
-                  allowfullscreen>
-                </iframe>
-            </div>
-
+    <div class="glass-card rounded-[2rem] shadow-2xl flex justify-center items-center w-full p-4">
+        <!-- VIDEO HORIZONTAL -->
+        <div class="video-horizontal">
+            <iframe 
+              src="https://scripts.converteai.net/fe1e87df-6c9f-4cb2-8c29-b7f05e8afcab/players/6992fb448f7f5267ea0df918/v4/embed.html"
+              allow="autoplay; fullscreen"
+              allowfullscreen>
+            </iframe>
         </div>
     </div>
 
