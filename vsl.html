@@ -10,9 +10,6 @@
 
 <style>
 :root {
-    --angola-red: #E31B23;
-    --angola-yellow: #F8D308;
-    --angola-black: #000000;
     --gold-gradient: linear-gradient(135deg, #F8D308 0%, #D4AF37 50%, #F8D308 100%);
 }
 body {
@@ -25,7 +22,7 @@ body {
 .glass-card{
     background:rgba(255,255,255,0.03);
     backdrop-filter:blur(15px);
-    border:4px solid #E31B23;
+    border:none; /* BORDA REMOVIDA */
 }
 .btn-ganho{
     background:var(--gold-gradient);
@@ -35,54 +32,61 @@ body {
 .botao-escondido{
     display:none;
 }
+
+/* VIDEO GRANDE DE PONTA A PONTA */
+.video-full{
+    width:100%;
+    margin:0 auto 3rem auto;
+}
+.video-full iframe{
+    width:100%;
+    height:80vh; /* OCUPA GRANDE PARTE DA TELA */
+    border:none;
+    border-radius:1.5rem;
+}
 </style>
 </head>
 
 <body>
 
-<div class="min-h-screen flex items-center justify-center p-6">
-  <div class="max-w-3xl w-full">
-    <div class="glass-card p-12 rounded-[5rem] text-center shadow-2xl relative">
+<div class="min-h-screen flex flex-col items-center justify-start pt-10 px-4">
 
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-red-600 px-8 py-2 rounded-full font-black uppercase text-xs">
-      SAIBA COMO VERIFICAR
-      </div>
+    <!-- TEXTO BEM NO TOPO E CENTRALIZADO -->
+    <h2 class="text-4xl md:text-6xl font-black text-red-600 italic uppercase text-center mb-10">
+        ASSISTA ANTES DE CONTINUAR
+    </h2>
 
-      <h2 class="text-4xl md:text-5xl font-black text-red-600 italic uppercase mb-12 mt-6">
-        ASSISTA ANTES DE CONTINUAR !!
-      </h2>
+    <div class="w-full max-w-5xl">
+        <div class="glass-card p-6 rounded-[3rem] text-center shadow-2xl">
 
-      <!-- 🔥 VÍDEO INCORPORADO -->
-      <div class="w-full rounded-lg overflow-hidden mb-12">
-        <div style="position:relative;padding-top:56.25%;">
-          <iframe 
-            src="https://scripts.converteai.net/fe1e87df-6c9f-4cb2-8c29-b7f05e8afcab/players/6992fb448f7f5267ea0df918/v4/embed.html"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-            allow="autoplay; fullscreen"
-            allowfullscreen>
-          </iframe>
+            <!-- VIDEO GRANDE -->
+            <div class="video-full">
+                <iframe 
+                  src="https://scripts.converteai.net/fe1e87df-6c9f-4cb2-8c29-b7f05e8afcab/players/6992fb448f7f5267ea0df918/v4/embed.html"
+                  allow="autoplay; fullscreen"
+                  allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- BOTÃO INVISÍVEL -->
+            <button id="btnDelay"
+              onclick="window.location.href='payment.html'"
+              class="botao-escondido w-full py-8 btn-ganho rounded-[3rem] text-2xl uppercase shadow-xl hover:scale-105 transition-all">
+              VERIFICAR CONTA AGORA
+            </button>
+
         </div>
-      </div>
-
-      <!-- 🔒 BOTÃO INVISÍVEL INICIALMENTE -->
-      <button id="btnDelay"
-        onclick="window.location.href='payment.html'"  class="botao-escondido w-full py-8 btn-ganho rounded-[3rem] text-2xl uppercase shadow-xl hover:scale-105 transition-all">
-        VERIFICAR CONTA AGORA
-      </button>
-
     </div>
-  </div>
+
 </div>
 
-<!-- Script do SmartPlayer -->
 <script src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" async></script>
 
-<!-- ⏳ SCRIPT PARA EXIBIR APÓS 3:40 -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
     const botao = document.getElementById("btnDelay");
-    const tempoDelay = 220000; // 3 minutos e 40 segundos em milissegundos
+    const tempoDelay = 220000; // 3 minutos e 40 segundos
 
     setTimeout(function() {
         botao.style.display = "block";
@@ -94,6 +98,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </body>
 </html>
-
-
-
